@@ -1,2 +1,2 @@
-public record TariffRec(String type, float factor) {
+public record TariffRec(String type, double factor) {
 }

@@ -1,2 +1,2 @@
-public record AgeFactorRec(int max, float factor) {
+public record AgeFactorRec(int max, double factor) {
 }

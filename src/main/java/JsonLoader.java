@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -14,7 +15,6 @@ public class JsonLoader {
     public <T> List<T> readJson(Path jsonFile, Class<T> recordClass) {
         try {
             JavaType listType = mapper.getTypeFactory().constructCollectionType(List.class, recordClass);
-
             return mapper.readValue(jsonFile.toFile(), listType);
         } catch (IOException e) {
             throw new JsonLoadingException("Konnte JSON nicht laden: " + jsonFile, e);

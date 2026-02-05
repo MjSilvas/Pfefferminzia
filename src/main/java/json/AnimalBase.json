@@ -1,0 +1,5 @@
+[
+  {"type": "Hund", "baseValue": 2500},
+  {"type": "Katze", "baseValue": 2000},
+  {"type": "Kleintier", "baseValue": 1000}
+]

@@ -1,20 +1,26 @@
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
-import java.io.IOError;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
+
 
 public class JsonLoader {
-    ObjectMapper mapper = new ObjectMapper();
+    private ObjectMapper mapper = new ObjectMapper();
 
-    public <T> T read(Path file, Class<T> type) {
+
+    public <T> List<T> readJson(Path jsonFile, Class<T> recordClass) {
         try {
-            return mapper.readValue(file.toFile(), type);
+            JavaType listType = mapper.getTypeFactory().constructCollectionType(List.class, recordClass);
+
+            return mapper.readValue(jsonFile.toFile(), listType);
         } catch (IOException e) {
-            throw new JsonLoadingException("Konnte JSON nicht laden: " + file, e);
+            throw new JsonLoadingException("Konnte JSON nicht laden: " + jsonFile, e);
         }
     }
+
 
     public static final class JsonLoadingException extends RuntimeException {
         public JsonLoadingException(String message, Throwable cause) {

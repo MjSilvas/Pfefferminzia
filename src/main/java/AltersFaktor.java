@@ -6,6 +6,8 @@ public class AltersFaktor {
         LocalDate today = LocalDate.now();
         int age = today.getYear() - birthDate.getYear();
 
+
+
         return age;
     }
 }

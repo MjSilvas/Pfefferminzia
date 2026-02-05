@@ -1,0 +1,5 @@
+[
+  {"type": "Kompakt", "factor": 1},
+  {"type": "Optimal", "factor": 1.2},
+  {"type": "Premium", "factor": 1.4}
+]

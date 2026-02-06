@@ -1,6 +1,8 @@
+package calculator;
+
 import java.math.BigDecimal;
 import java.nio.file.Path;
-import java.time.Instant;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class RecordsHandler {
@@ -18,11 +20,12 @@ public class RecordsHandler {
 
     public void loadRecords() {
         loader = new JsonLoader();
-
-        animalBaseRecs = loader.readJson(Path.of("src/main/java/json/AnimalBase.json"), AnimalBaseRec.class);
-        tariffRecs = loader.readJson(Path.of("src/main/java/json/TariffFactor.json"), TariffRec.class);
-        ageFaktorRecs = loader.readJson(Path.of("src/main/java/json/AgeFactor.json"), AgeFactorRec.class);
+        String path = "src/main/java/calculator/json/";
+        animalBaseRecs = loader.readJson(Path.of(path +"AnimalBase.json"), AnimalBaseRec.class);
+        tariffRecs = loader.readJson(Path.of(path +"TariffFactor.json"), TariffRec.class);
+        ageFaktorRecs = loader.readJson(Path.of(path +"AgeFactor.json"), AgeFactorRec.class);
     }
+
 
     public BigDecimal getBaseSum(String type) {
 
@@ -31,20 +34,20 @@ public class RecordsHandler {
                 return animalBaseRec.baseValue();
             }
         }
-        return null;
+        return BigDecimal.ZERO;
     }
 
-    public Double getTariffFactor(String tariff) {
+    public BigDecimal getTariffFactor(String tariff) {
         for(TariffRec tariffRec : tariffRecs) {
             if(tariffRec.type().equalsIgnoreCase(tariff)) {
                 return tariffRec.factor();
             }
         }
-        return null;
+        return BigDecimal.ZERO;
     }
-    public Double getAgeFactorFactor(int age) {
+    public BigDecimal getAgeFactorFactor(int age) {
         int minAge =Integer.MAX_VALUE;
-        Double ageFactor = 0d;
+        BigDecimal ageFactor = BigDecimal.ZERO;
         for(AgeFactorRec ageFactorRec : ageFaktorRecs) {
             if(age<= ageFactorRec.max()&& ageFactorRec.max() <= minAge) {
                 minAge = ageFactorRec.max();

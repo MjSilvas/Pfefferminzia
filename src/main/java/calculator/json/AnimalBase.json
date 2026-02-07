@@ -1,5 +1,5 @@
 [
-  {"type": "hund", "baseValue": 2500},
-  {"type": "katze", "baseValue": 2000},
-  {"type": "kleintier", "baseValue": 1000}
+  {"type": "HUND", "baseValue": 2500},
+  {"type": "KATZE", "baseValue": 2000},
+  {"type": "KLEINTIER", "baseValue": 1000}
 ]

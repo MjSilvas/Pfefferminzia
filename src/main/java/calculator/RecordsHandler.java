@@ -1,8 +1,13 @@
 package calculator;
 
+import calculator.enums.AnimalTypeEnum;
+import calculator.enums.TariffEnum;
+import calculator.records.AgeFactorRec;
+import calculator.records.AnimalBaseRec;
+import calculator.records.TariffRec;
+
 import java.math.BigDecimal;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 public class RecordsHandler {
@@ -28,9 +33,9 @@ public class RecordsHandler {
 
 
     public BigDecimal getBaseSum(String type) {
-
+        AnimalTypeEnum input = AnimalTypeEnum.valueOf(type.toUpperCase());
         for(AnimalBaseRec animalBaseRec : animalBaseRecs) {
-            if(animalBaseRec.type().equalsIgnoreCase(type)) {
+            if(animalBaseRec.type()==input) {
                 return animalBaseRec.baseValue();
             }
         }
@@ -38,8 +43,9 @@ public class RecordsHandler {
     }
 
     public BigDecimal getTariffFactor(String tariff) {
+        TariffEnum input = TariffEnum.valueOf(tariff.toUpperCase());
         for(TariffRec tariffRec : tariffRecs) {
-            if(tariffRec.type().equalsIgnoreCase(tariff)) {
+            if(tariffRec.type()==input) {
                 return tariffRec.factor();
             }
         }

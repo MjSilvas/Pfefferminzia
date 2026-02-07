@@ -10,8 +10,7 @@ import java.util.List;
 
 
 public class JsonLoader {
-    private ObjectMapper mapper = new ObjectMapper();
-
+    private final ObjectMapper mapper = new ObjectMapper();
 
     public <T> List<T> readJson(Path jsonFile, Class<T> recordClass) {
         try {

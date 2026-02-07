@@ -1,4 +1,4 @@
-package calculator;
+package calculator.records;
 
 import java.math.BigDecimal;
 

@@ -1,5 +1,5 @@
 [
-  {"type": "kompakt", "factor": 1},
-  {"type": "optimal", "factor": 1.2},
-  {"type": "premium", "factor": 1.4}
+  {"type": "KOMPAKT", "factor": 1},
+  {"type": "OPTIMAL", "factor": 1.2},
+  {"type": "PREMIUM", "factor": 1.4}
 ]

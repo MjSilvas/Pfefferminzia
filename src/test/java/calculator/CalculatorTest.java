@@ -59,8 +59,8 @@ Calculator calc = new Calculator();
 
 
         assertEquals(new BigDecimal(700).setScale(2, RoundingMode.HALF_UP), result1);
-        assertEquals(new BigDecimal(700).setScale(2, RoundingMode.HALF_UP), result2);
-        assertEquals(new BigDecimal(700).setScale(2, RoundingMode.HALF_UP), result3);
+        assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP), result2);
+        assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.HALF_UP), result3);
 
 
     }

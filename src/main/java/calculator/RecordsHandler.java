@@ -33,23 +33,35 @@ public class RecordsHandler {
 
 
     public BigDecimal getBaseSum(String type) {
-        AnimalTypeEnum input = AnimalTypeEnum.valueOf(type.toUpperCase());
+        AnimalTypeEnum input;
+        try {
+            input = AnimalTypeEnum.valueOf(type.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid type input");
+            return null;
+        }
         for(AnimalBaseRec animalBaseRec : animalBaseRecs) {
             if(animalBaseRec.type()==input) {
                 return animalBaseRec.baseValue();
             }
         }
-        return BigDecimal.ZERO;
+        return null;
     }
 
     public BigDecimal getTariffFactor(String tariff) {
-        TariffEnum input = TariffEnum.valueOf(tariff.toUpperCase());
+        TariffEnum input;
+        try {
+             input = TariffEnum.valueOf(tariff.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid type input");
+            return null;
+        }
         for(TariffRec tariffRec : tariffRecs) {
             if(tariffRec.type()==input) {
                 return tariffRec.factor();
             }
         }
-        return BigDecimal.ZERO;
+        return null;
     }
     public BigDecimal getAgeFactorFactor(int age) {
         int minAge =Integer.MAX_VALUE;

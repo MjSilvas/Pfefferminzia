@@ -17,7 +17,7 @@ public class Calculator {
     public BigDecimal calculateSum(String type, String tariff) {
         BigDecimal baseSum = recordsHandler.getBaseSum(type);
         BigDecimal factor = recordsHandler.getTariffFactor(tariff);
-        if(baseSum.equals(BigDecimal.ZERO)||factor.equals(BigDecimal.ZERO)) {
+        if(baseSum==null||factor==null) {
             return BigDecimal.ZERO;
         }
         return baseSum.multiply(factor).setScale(2, RoundingMode.HALF_UP);

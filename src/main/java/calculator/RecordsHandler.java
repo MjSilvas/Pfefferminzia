@@ -10,6 +10,11 @@ import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.util.List;
 
+
+/**
+ * RecordsHandler lädt Recordlisten aller Werte für Tiere und Tarife.
+ * Durchsucht die Liste der Records und gibt gesuchte Werte zurück
+ */
 public class RecordsHandler {
     private static RecordsHandler instance;
     JsonLoader loader;

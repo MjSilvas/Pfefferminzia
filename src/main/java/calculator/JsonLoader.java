@@ -12,6 +12,12 @@ import java.util.List;
 public class JsonLoader {
     private final ObjectMapper mapper = new ObjectMapper();
 
+    /**
+     * Ladet eine Json Datei und wandelt sie in eine Liste von Records um
+     * @param jsonFile die Json Datei die geladen werden soll
+     * @param recordClass die Recordklasse die verwendet werden soll
+     * @return Liste aller Records die in der Json Datei vorkommen
+     */
     public <T> List<T> readJson(Path jsonFile, Class<T> recordClass) {
         try {
             JavaType listType = mapper.getTypeFactory().constructCollectionType(List.class, recordClass);
